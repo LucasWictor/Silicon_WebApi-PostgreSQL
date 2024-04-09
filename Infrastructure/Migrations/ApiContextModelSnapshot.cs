@@ -21,6 +21,53 @@ namespace Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Infrastructure.Entities.CourseEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DiscountPrice")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Hours")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsBestseller")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("LikesInNumbers")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("LikesInProcent")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+                });
+
             modelBuilder.Entity("Infrastructure.Entities.SubscribersEntity", b =>
                 {
                     b.Property<string>("Email")
